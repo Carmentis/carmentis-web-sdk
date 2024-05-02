@@ -1,11 +1,23 @@
+
 # Methods
 
-- [Blockchain methods](#blockchain)
-- [Key management methods](#keys)
+- [Blockchain methods](#blockchain_methods)
+  - [getStatus()](#getStatus)
+  - [getMasterBlockList()](#getMasterBlockList)
+  - [getMasterBlock()](#getMasterBlock)
+  - [getMicroChain()](#getMicroChain)
+  - [getMicroBlock()](#getMicroBlock)
+- [Key management methods](#key_management_methods)
+  - [generateWordList()](#generateWordList)
+  - [getMatchingWords()](#getMatchingWords)
+  - [deriveFromWordList()](#deriveFromWordList)
+  - [deriveKeyFromPassword()](#deriveKeyFromPassword)
 
-<a name="blockchain"></a>
+<a name="blockchain_methods"></a>
 
 ## Blockchain methods
+
+<a name="getStatus"></a>
 
 ### getStatus()
 
@@ -23,6 +35,8 @@ The following object is returned:
         success: Boolean,
         data: chainStatusObject
     }
+
+<a name="getMasterBlockList"></a>
 
 ### getMasterBlockList()
 
@@ -44,6 +58,8 @@ The following object is returned:
       data: masterblockListObject
     }
 
+<a name="getMasterBlock"></a>
+
 ### getMasterBlock()
 
 ```js
@@ -62,6 +78,8 @@ The following object is returned:
       success: Boolean,
       data: masterBlockObject
     }
+
+<a name="getMicroChain"></a>
 
 ### getMicroChain()
 
@@ -82,6 +100,8 @@ The following object is returned:
       data: microchainObject
     }
 
+<a name="getMicroBlock"></a>
+
 ### getMicroBlock()
 
 ```js
@@ -101,9 +121,11 @@ The following object is returned:
       data: microblockObject
     }
 
-<a name="keys"></a>
+<a name="key_management_methods"></a>
 
 ## Key management methods
+
+<a name="generateWordList"></a>
 
 ### generateWordList()
 
@@ -119,6 +141,8 @@ async generateWordList(nWords)
 
 An array of strings.
 
+<a name="getMatchingWords"></a>
+
 ### getMatchingWords()
 
 ```js
@@ -133,6 +157,8 @@ async getMatchingWords(prefix)
 
 The dictionary words matching the prefix, as an array of strings.
 
+<a name="deriveFromWordList"></a>
+
 ### deriveFromWordList()
 
 ```js
@@ -146,6 +172,8 @@ async deriveFromWordList(words)
 **Returned value**
 
 A pair `[ publicId, masterKey ]`, where both `publicId` and `masterKey` are `Uint8Array`.
+
+<a name="deriveKeyFromPassword"></a>
 
 ### deriveKeyFromPassword()
 
@@ -185,7 +213,7 @@ async decrypt(data, iv)
 | Argument | Type | Mandatory | Description |
 | - |:-:|:-:| - |
 | `data` | `Uint8Array` | yes | The encrypted data.
-| `iv` | `Uint8array` | no | The nonce used with the `encrypt()` method (defaults to all 0's).
+| `iv` | `Uint8array` | no | The initialization vector used with the `encrypt()` method (defaults to all 0's).
 
 **Returned value**
 
