@@ -32,8 +32,8 @@ This method takes no argument.
 The following object is returned:
 
     {
-        success: Boolean,
-        data: chainStatusObject
+      success: Boolean,
+      data: chainStatusObject
     }
 
 <a name="getMasterBlockList"></a>
