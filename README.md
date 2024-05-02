@@ -1,5 +1,10 @@
 # Methods
 
+- [Blockchain methods](#blockchain)
+- [Key management methods](#keys)
+
+<a name="blockchain"></a>
+
 ## Blockchain methods
 
 ### getStatus()
@@ -80,6 +85,8 @@ The following object is returned:
         success: Boolean,
         data: microblockObject
     }
+
+<a name="keys"></a>
 
 ## Key management methods
 
