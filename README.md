@@ -9,7 +9,9 @@
 
 ### getStatus()
 
-    async getStatus()
+```js
+async getStatus()
+```
 
 This method takes no argument.
 
@@ -23,7 +25,9 @@ The following object is returned:
 
 ### getMasterBlockList()
 
-    async getMasterBlockList(firstBlockId, count)
+```js
+async getMasterBlockList(firstBlockId, count)
+```
 
 | Argument | Type | Mandatory | Description |
 | - |:-:|:-:| - |
@@ -34,13 +38,15 @@ The following object is returned:
 The following object is returned:
 
     {
-        success: Boolean,
-        data: masterblockListObject
+      success: Boolean,
+      data: masterblockListObject
     }
 
 ### getMasterBlock()
 
-    async getMasterBlock(id)
+```js
+async getMasterBlock(id)
+```
 
 | Argument | Type | Mandatory | Description |
 | - |:-:|:-:| - |
@@ -50,13 +56,15 @@ The following object is returned:
 The following object is returned:
 
     {
-        success: Boolean,
-        data: masterBlockObject
+      success: Boolean,
+      data: masterBlockObject
     }
 
 ### getMicroChain()
 
-    async getMicroChain(id)
+```js
+async getMicroChain(id)
+```
 
 | Argument | Type | Mandatory | Description |
 | - |:-:|:-:| - |
@@ -66,13 +74,15 @@ The following object is returned:
 The following object is returned:
 
     {
-        success: Boolean,
-        data: microchainObject
+      success: Boolean,
+      data: microchainObject
     }
 
 ### getMicroBlock()
 
-    async getMicroBlock(id)
+```js
+async getMicroBlock(id)
+```
 
 | Argument | Type | Mandatory | Description |
 | - |:-:|:-:| - |
@@ -82,8 +92,8 @@ The following object is returned:
 The following object is returned:
 
     {
-        success: Boolean,
-        data: microblockObject
+      success: Boolean,
+      data: microblockObject
     }
 
 <a name="keys"></a>
@@ -92,7 +102,9 @@ The following object is returned:
 
 ### generateWordList()
 
-    async generateWordList(nWords)
+```js
+async generateWordList(nWords)
+```
 
 | Argument | Type | Mandatory | Description |
 | - |:-:|:-:| - |
@@ -103,7 +115,9 @@ An array of strings.
 
 ### getMatchingWords()
 
-    async getMatchingWords(prefix)
+```js
+async getMatchingWords(prefix)
+```
 
 | Argument | Type | Mandatory | Description |
 | - |:-:|:-:| - |
@@ -114,7 +128,9 @@ The dictionary words matching the prefix, as an array of strings.
 
 ### deriveFromWordList()
 
-    async deriveFromWordList(words)
+```js
+async deriveFromWordList(words)
+```
 
 | Argument | Type | Mandatory | Description |
 | - |:-:|:-:| - |
@@ -125,7 +141,9 @@ A pair `[ publicId, masterKey ]`, where both `publicId` and `masterKey` are `Uin
 
 ### deriveKeyFromPassword()
 
-    async deriveKeyFromPassword(password)
+```js
+async deriveKeyFromPassword(password)
+```
 
 | Argument | Type | Mandatory | Description |
 | - |:-:|:-:| - |
@@ -136,7 +154,9 @@ An object with two methods: `encrypt` and `decrypt`.
 
 **encrypt()**
 
-    async encrypt(data, nonce)
+```js
+async encrypt(data, iv)
+```
 
 | Argument | Type | Mandatory | Description |
 | - |:-:|:-:| - |
@@ -148,7 +168,9 @@ An `Uint8Array`.
 
 **decrypt()**
 
-    async decrypt(data, nonce)
+```js
+async decrypt(data, iv)
+```
 
 | Argument | Type | Mandatory | Description |
 | - |:-:|:-:| - |
@@ -156,4 +178,4 @@ An `Uint8Array`.
 | `iv` | `Uint8array` | no | The nonce used with the `encrypt()` method (defaults to all 0's).
 
 **Returned value**
-An `Uint8Array`, or `false` if the key or the IV doesn't match the encrypted content.
+An `Uint8Array`, or `false` if the decryption failed.
