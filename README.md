@@ -1,3 +1,9 @@
+# Carmentis Client SDK
+
+- [Methods](#methods)
+- [Objects](#objects)
+
+<a name="methods"></a>
 
 # Methods
 
@@ -10,7 +16,9 @@
 - [Key management methods](#key_management_methods)
   - [generateWordList()](#generateWordList)
   - [getMatchingWords()](#getMatchingWords)
-  - [deriveFromWordList()](#deriveFromWordList)
+  - [getSeedFromWordList()](#getSeedFromWordList)
+  - [getWordListFromSeed()](#getWordListFromSeed)
+  - [deriveKeyIdFromSeed()](#deriveKeyIdFromSeed)
   - [deriveKeyFromPassword()](#deriveKeyFromPassword)
 
 <a name="blockchain_methods"></a>
@@ -36,6 +44,8 @@ The following object is returned:
       data: chainStatusObject
     }
 
+See [chainStatusObject](#chainStatusObject).
+
 <a name="getMasterBlockList"></a>
 
 ### getMasterBlockList()
@@ -55,8 +65,10 @@ The following object is returned:
 
     {
       success: Boolean,
-      data: masterblockListObject
+      data: masterBlockListObject
     }
+
+See [masterBlockListObject](#masterBlockListObject).
 
 <a name="getMasterBlock"></a>
 
@@ -79,6 +91,8 @@ The following object is returned:
       data: masterBlockObject
     }
 
+See [masterBlockObject](#masterBlockObject).
+
 <a name="getMicroChain"></a>
 
 ### getMicroChain()
@@ -97,8 +111,10 @@ The following object is returned:
 
     {
       success: Boolean,
-      data: microchainObject
+      data: microChainObject
     }
+
+See [microChainObject](#microChainObject).
 
 <a name="getMicroBlock"></a>
 
@@ -118,8 +134,10 @@ The following object is returned:
 
     {
       success: Boolean,
-      data: microblockObject
+      data: microBlockObject
     }
+
+See [microBlockObject](#microBlockObject).
 
 <a name="key_management_methods"></a>
 
@@ -135,7 +153,7 @@ async generateWordList(nWords)
 
 | Argument | Type | Mandatory | Description |
 | - |:-:|:-:| - |
-| `id` | `integer` | no | The number of words to generate in [12 .. 24]. If not specified, the default is 12.
+| `nWords` | `integer` | no | The number of words to generate in [12 .. 24]. If not specified, the default is 12.
 
 **Returned value**
 
@@ -157,12 +175,12 @@ async getMatchingWords(prefix)
 
 The dictionary words matching the prefix, as an array of strings.
 
-<a name="deriveFromWordList"></a>
+<a name="getSeedFromWordList"></a>
 
-### deriveFromWordList()
+### getSeedFromWordList()
 
 ```js
-async deriveFromWordList(words)
+async getSeedFromWordList(words)
 ```
 
 | Argument | Type | Mandatory | Description |
@@ -171,7 +189,39 @@ async deriveFromWordList(words)
 
 **Returned value**
 
-A pair `[ publicId, masterKey ]`, where both `publicId` and `masterKey` are `Uint8Array`.
+A seed, as an `Uint8Array`.
+
+<a name="getSeedFromWordList"></a>
+
+### getWordListFromSeed()
+
+```js
+async getWordListFromSeed(seed)
+```
+
+| Argument | Type | Mandatory | Description |
+| - |:-:|:-:| - |
+| `seed` | `Uint8Array` | yes | The seed, e.g. obtained with `getSeedFromWordList()`.
+
+**Returned value**
+
+The list of words, as an array of strings.
+
+<a name="deriveKeyIdFromSeed"></a>
+
+### deriveKeyIdFromSeed()
+
+```js
+async deriveKeyIdFromSeed(seed)
+```
+
+| Argument | Type | Mandatory | Description |
+| - |:-:|:-:| - |
+| `seed` | `Uint8Array` | yes | The seed, e.g. obtained with `getSeedFromWordList()`.
+
+**Returned value**
+
+A pair `[ masterKey, chainLinkId ]`, where both values are `Uint8Array`.
 
 <a name="deriveKeyFromPassword"></a>
 
@@ -218,3 +268,14 @@ async decrypt(data, iv)
 **Returned value**
 
 An `Uint8Array`, or `false` if the decryption failed.
+
+<a name="objects"></a>
+
+# Objects
+
+- [chainStatusObject](#chainStatusObject)
+- [masterBlockListObject](#masterBlockListObject)
+- [masterBlockObject](#masterBlockObject)
+- [microChainObject](#microChainObject)
+- [microBlockObject](#microBlockObject)
+
